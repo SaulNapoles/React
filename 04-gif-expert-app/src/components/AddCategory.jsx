@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 
-export const AddCategory = ( { setCategories } ) => {
+export const AddCategory = ( { onNewCategory } ) => {
 
     const [ inputValue, setInputValue ] = useState();
     const onInputChange = (event) => {
@@ -11,15 +11,17 @@ export const AddCategory = ( { setCategories } ) => {
     const onSubmit = (event) =>{
         event.preventDefault();
         if( inputValue.trim().length <= 0 ) return;
-        setCategories( categories => [ inputValue, ...categories] );
+
+        // setCategories( categories => [ inputValue, ...categories] );
         setInputValue('')
+        onNewCategory( inputValue.trim() )
     }
     return (
         <form onSubmit={ onSubmit }>
             <input
                 type="text"
                 placeholder="Buscar GIFs"
-                value =  { inputValue }
+                value =  { inputValue || '' }
                 onChange = { onInputChange }
             />
         </form>
