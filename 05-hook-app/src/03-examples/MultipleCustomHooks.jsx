@@ -1,11 +1,17 @@
+import { useCounter } from '../hooks/useCounter';
 import { useFetch } from '../hooks/useFetch'
 
+const initialValue = 1;
+
 export const MultipleCustomHooks = () => {
-  
-    const { data, isLoading, hasError } = useFetch('https://breakingbadapi.com/api/quotes/1')
+    
+    
+
+    const { counter, increment, decrement } = useCounter( initialValue )
+    const { data, isLoading, hasError } = useFetch(`https://breakingbadapi.com/api/quotes/${ counter }`)
 
     const { author, quote } = !!data && data[0];
-    console.log(data);
+    console.log(data);  
 
 
 
@@ -31,10 +37,17 @@ export const MultipleCustomHooks = () => {
                 )
         }
 
-        <button className="btn btn-primary">
+        <button 
+            className="btn btn-primary" 
+            onClick={ () => increment() }>
             Next quote
         </button>
 
+        <button 
+            className="btn btn-primary" 
+            onClick={ () => decrement() }>
+            Previus quote
+        </button>
 
     </>
   )
