@@ -16,7 +16,7 @@ export const TodoItem = ({ id, description, done, onDeleteTodo, onToggleTodo }) 
     </li>
   )
 }
-
+//prueba
 TodoItem.propTypes = {
     id: PropTypes.number.isRequired,
     description: PropTypes.string,
