@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../auth/context/AuthContext';
-import { authReducer } from '../../auth/context/authReducer';
+import { AuthContext } from '../../auth';
 
 
 export const Navbar = () => {

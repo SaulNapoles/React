@@ -10,9 +10,11 @@ export const LoginPage = () => {
 
   const onLogin = () => {
 
-    login( 'Saul Rodríguez');
+    const lastPath = localStorage.getItem( 'lastPath' ) || '/';
 
-    navigate('/',{
+    login( 'Saul Nápoles');
+
+    navigate(lastPath,{
       replace: true
     });
   }
